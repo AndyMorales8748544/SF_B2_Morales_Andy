@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Actions - Pipeline CI</title>
+</head>
+<body>
+
+    <h1>GitHub Actions - Pipeline CI</h1>
+
+    <p>
+        El proyecto utiliza GitHub Actions para automatizar
+        la verificación del código y la ejecución de pruebas.
+    </p>
+
+    <h2>1. Configuración del workflow</h2>
+
+    <p>
+        El archivo de configuración se encuentra en:
+    </p>
+
+    <pre><code>.github/workflows/ci.yml</code></pre>
+
+    <p>
+        El workflow utiliza Ubuntu como entorno de ejecución
+        y Node.js 24 para verificar la aplicación.
+    </p>
+
+    <h2>2. Eventos que activan el pipeline</h2>
+
+    <ul>
+        <li>Push a la rama feature/xyz.</li>
+        <li>Pull Request hacia develop.</li>
+        <li>Pull Request hacia main.</li>
+    </ul>
+
+    <h2>3. Etapas del pipeline</h2>
+
+    <ol>
+        <li>Descargar el código mediante actions/checkout@v4.</li>
+        <li>Configurar Node.js mediante actions/setup-node@v4.</li>
+        <li>Verificar la sintaxis del archivo JavaScript.</li>
+        <li>Ejecutar las dos pruebas automatizadas.</li>
+        <li>Generar y publicar el archivo de resultados como artefacto.</li>
+    </ol>
+
+    <h2>4. Comandos de verificación</h2>
+
+    <pre><code>node --check script.js
+node --test tests/registro.test.js</code></pre>
+
+    <p>
+        Resultado esperado: sintaxis válida, dos pruebas
+        aprobadas y ninguna prueba fallida.
+    </p>
+
+    <h2>5. Casos de prueba</h2>
+
+    <ul>
+        <li>
+            Registro válido: comprueba que el sistema
+            acepta un nombre ingresado correctamente.
+        </li>
+        <li>
+            Registro inválido: comprueba que el sistema
+            rechaza un nombre vacío.
+        </li>
+    </ul>
+
+    <h2>6. Fallo controlado y solución</h2>
+
+    <p>
+        Se modificó intencionalmente una aserción para
+        esperar false cuando el registro válido devolvía true.
+        Esto provocó un AssertionError y una ejecución fallida.
+    </p>
+
+    <p>
+        Después se corrigió la aserción para esperar true.
+        Las dos pruebas volvieron a aprobarse y el pipeline
+        finalizó correctamente.
+    </p>
+
+    <h2>7. Evidencias de ejecución</h2>
+
+    <p>
+        <a href="https://github.com/AndyMorales8748544/SF_B2_Morales_Andy/actions/runs/44225510094">
+            Consultar ejecución fallida
+        </a>
+    </p>
+
+    <p>
+        <a href="https://github.com/AndyMorales8748544/SF_B2_Morales_Andy/actions/runs/44226353891">
+            Consultar ejecución exitosa
+        </a>
+    </p>
+
+    <h2>8. Resultados y publicación</h2>
+
+    <p>
+        El workflow genera el archivo resultados-pruebas.txt
+        y lo publica como artefacto mediante
+        actions/upload-artifact@v4.
+    </p>
+
+    <p>
+        La publicación de la documentación se realizará
+        mediante GitHub Pages. Este workflow CI verifica
+        el código y las pruebas; no despliega por sí mismo
+        la aplicación a un servidor de producción.
+    </p>
+
+    <h2>9. Consultar el pipeline</h2>
+
+    <p>
+        <a href="https://github.com/AndyMorales8748544/SF_B2_Morales_Andy/actions">
+            Ver GitHub Actions del proyecto
+        </a>
+    </p>
+
+    <hr>
+
+    <p><a href="index.html">Volver a la página principal</a></p>
+
+</body>
+</html>
