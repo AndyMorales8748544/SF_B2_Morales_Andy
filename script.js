@@ -1,9 +1,5 @@
-const formulario = document.getElementById("formRegistro");
-const nombreInput = document.getElementById("nombre");
-const mensaje = document.getElementById("mensaje");
-
 function validarNombre(nombre) {
-  return nombre.trim().length > 0;
+  return typeof nombre === "string" && nombre.trim().length > 0;
 }
 
 function registrarUsuario(nombre) {
@@ -20,11 +16,28 @@ function registrarUsuario(nombre) {
   };
 }
 
-formulario.addEventListener("submit", function (event) {
-  event.preventDefault();
+// Exportar funciones para pruebas con Node.js
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = {
+    validarNombre,
+    registrarUsuario,
+  };
+}
 
-  const resultado = registrarUsuario(nombreInput.value);
+// Ejecutar el formulario solamente en el navegador
+if (typeof document !== "undefined") {
+  const formulario = document.getElementById("formRegistro");
 
-  mensaje.textContent = resultado.mensaje;
-  mensaje.style.color = resultado.exito ? "green" : "red";
-});
+  if (formulario) {
+    formulario.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const nombre = document.getElementById("nombre").value;
+      const mensaje = document.getElementById("mensaje");
+      const resultado = registrarUsuario(nombre);
+
+      mensaje.textContent = resultado.mensaje;
+      mensaje.style.color = resultado.exito ? "green" : "red";
+    });
+  }
+}
