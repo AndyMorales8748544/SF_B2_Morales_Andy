@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrategia Git y GitHub</title>
+</head>
+<body>
+
+    <h1>Estrategia Git y GitHub</h1>
+
+    <p>
+        El proyecto SF - Registro de Usuarios utiliza Git para
+        controlar los cambios del código fuente y GitHub para
+        gestionar el repositorio, las ramas y los Pull Requests.
+    </p>
+
+    <h2>1. Repositorio del proyecto</h2>
+
+    <p>
+        <a href="https://github.com/AndyMorales8748544/SF_B2_Morales_Andy">
+            Ver repositorio en GitHub
+        </a>
+    </p>
+
+    <h2>2. Estrategia de ramas</h2>
+
+    <ul>
+        <li><strong>main:</strong> contiene la versión estable.</li>
+        <li><strong>develop:</strong> integra los cambios antes de publicarlos.</li>
+        <li><strong>feature/xyz:</strong> permite desarrollar y probar funcionalidades.</li>
+    </ul>
+
+    <p>
+        El flujo utilizado fue feature/xyz hacia develop y,
+        posteriormente, develop hacia main.
+    </p>
+
+    <h2>3. Comandos Git utilizados</h2>
+
+    <pre><code>git checkout main
+git checkout -b develop
+git checkout -b feature/xyz
+git add .
+git commit -m "Descripcion del cambio"
+git push origin feature/xyz</code></pre>
+
+    <p>
+        Estos comandos ilustran la creación de ramas, el registro
+        de cambios y su publicación en el repositorio remoto.
+        Para crear feature/xyz desde develop, primero se debe
+        cambiar a la rama develop.
+    </p>
+
+    <h2>4. Commits realizados</h2>
+
+    <ul>
+        <li>
+            3cf8fd2 - Agregar formulario HTML para registro de usuarios.
+        </li>
+        <li>
+            8fd17c2 - Implementar validacion de nombres y mensajes de registro.
+        </li>
+        <li>
+            c821805 - Mejorar estilos y presentacion del formulario.
+        </li>
+        <li>
+            436d5d4 - Configurar pruebas automatizadas y pipeline CI.
+        </li>
+    </ul>
+
+    <p>
+        Cada commit registra un cambio identificable y permite
+        consultar el historial de desarrollo.
+    </p>
+
+    <h2>5. Pull Requests</h2>
+
+    <p>
+        <strong>Pull Request #1:</strong>
+        integración de feature/xyz hacia develop.
+    </p>
+
+    <p>
+        <a href="https://github.com/AndyMorales8748544/SF_B2_Morales_Andy/pull/1">
+            Consultar Pull Request #1
+        </a>
+    </p>
+
+    <p>
+        <strong>Pull Request #2:</strong>
+        integración de develop hacia main.
+    </p>
+
+    <p>
+        <a href="https://github.com/AndyMorales8748544/SF_B2_Morales_Andy/pull/2">
+            Consultar Pull Request #2
+        </a>
+    </p>
+
+    <p>
+        Ambos Pull Requests fueron integrados después de
+        comprobar las verificaciones de integración continua.
+    </p>
+
+    <h2>6. Versionado del proyecto</h2>
+
+    <p>
+        Se creó la etiqueta v1.0.0 para identificar una
+        versión estable de la aplicación.
+    </p>
+
+    <pre><code>git tag -a v1.0.0 -m "Version 1.0.0 estable del sistema de registro de usuarios"
+git push origin v1.0.0</code></pre>
+
+    <p>
+        <a href="https://github.com/AndyMorales8748544/SF_B2_Morales_Andy/tags">
+            Consultar etiquetas del repositorio
+        </a>
+    </p>
+
+    <h2>7. Verificación del historial</h2>
+
+    <pre><code>git log --oneline --graph --all
+git branch -a
+git tag</code></pre>
+
+    <p>
+        Resultado esperado: visualizar los commits, las ramas
+        locales y remotas, y la etiqueta v1.0.0.
+    </p>
+
+    <hr>
+
+    <p><a href="index.html">Volver a la página principal</a></p>
+
+</body>
+</html>

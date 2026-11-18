@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalación y ejecución local</title>
+</head>
+<body>
+    <h1>Instalación y ejecución local</h1>
+
+    <p>
+        Esta sección describe los pasos necesarios para descargar
+        y ejecutar la aplicación SF - Registro de Usuarios.
+    </p>
+
+    <h2>1. Requisitos previos</h2>
+    <ul>
+        <li>Git instalado.</li>
+        <li>Navegador web actualizado.</li>
+        <li>Node.js 24 para ejecutar las pruebas automatizadas.</li>
+    </ul>
+
+    <h2>2. Clonar el repositorio</h2>
+    <p>Ejecutar el siguiente comando:</p>
+
+    <pre><code>git clone https://github.com/AndyMorales8748544/SF_B2_Morales_Andy.git</code></pre>
+
+    <h2>3. Ingresar al proyecto</h2>
+
+    <pre><code>cd SF_B2_Morales_Andy</code></pre>
+
+    <h2>4. Ejecutar la aplicación</h2>
+    <p>
+        Abrir el archivo index.html en un navegador web.
+        La aplicación no requiere instalar dependencias
+        adicionales para su funcionamiento.
+    </p>
+
+    <h2>5. Verificar el funcionamiento</h2>
+    <ul>
+        <li>
+            Ingresar un nombre válido y comprobar que se
+            muestre un mensaje de registro exitoso.
+        </li>
+        <li>
+            Dejar el nombre vacío y comprobar que se
+            muestre un mensaje de error.
+        </li>
+    </ul>
+
+    <h2>6. Ejecutar pruebas automatizadas</h2>
+    <p>Desde la carpeta principal del proyecto:</p>
+
+    <pre><code>node --check script.js
+node --test tests/registro.test.js</code></pre>
+
+    <p>
+        Resultado esperado: verificación de sintaxis sin errores
+        y dos pruebas automatizadas aprobadas.
+    </p>
+
+    <hr>
+    <p><a href="index.html">Volver a la página principal</a></p>
+</body>
+</html>
