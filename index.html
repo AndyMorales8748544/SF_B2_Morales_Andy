@@ -10,10 +10,21 @@
     <main class="contenedor">
       <h1>SF - Registro de Usuarios</h1>
       <p>Sistema de registro - Software Factory</p>
-      <div id="aplicacion">
-        <p>Aplicación inicializada correctamente.</p>
-      </div>
+
+      <form id="formRegistro">
+        <label for="nombre">Nombre del usuario:</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          placeholder="Ingrese su nombre"
+        />
+        <button type="submit">Registrar usuario</button>
+      </form>
+
+      <output id="mensaje" for="nombre" aria-live="polite"></output>
     </main>
+
     <script src="script.js"></script>
   </body>
 </html>
