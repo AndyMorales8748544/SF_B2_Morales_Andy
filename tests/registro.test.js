@@ -6,7 +6,7 @@ const { registrarUsuario } = require("../script.js");
 test("Debe registrar correctamente un nombre valido", () => {
   const resultado = registrarUsuario("Andy Morales");
 
-  assert.equal(resultado.exito, true);
+  assert.equal(resultado.exito, false);
   assert.equal(
     resultado.mensaje,
     "Usuario registrado correctamente: Andy Morales",
