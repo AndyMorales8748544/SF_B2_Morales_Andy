@@ -1,0 +1,45 @@
+name: CI - Software Factory
+
+on:
+  push:
+    branches:
+      - feature/xyz
+
+  pull_request:
+    branches:
+      - develop
+      - main
+
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Obtener codigo fuente
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Comprobar sintaxis JavaScript
+        run: node --check script.js
+
+      - name: Ejecutar pruebas automatizadas
+        run: node --test --test-reporter=tap tests/registro.test.js > resultados-pruebas.txt
+
+      - name: Mostrar resultados de pruebas
+        if: always()
+        run: |
+          if [ -f resultados-pruebas.txt ]; then
+            cat resultados-pruebas.txt
+          fi
+
+      - name: Guardar resultados como artefacto
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: resultados-pruebas
+          path: resultados-pruebas.txt
+          if-no-files-found: warn
